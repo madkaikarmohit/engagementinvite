@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-labelledby="title desc">
+  <title id="title">Evil eye charm</title>
+  <desc id="desc">An elegant ivory, forest green and antique gold evil eye charm.</desc>
+  <path d="M5 32C16 15.5 31 7 48 7s32 8.5 43 25C80 48.5 65 57 48 57S16 48.5 5 32Z" fill="#F7F4E9" stroke="#B99A62" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M14 32c9.5-11.5 21-17 34-17s24.5 5.5 34 17c-9.5 11.5-21 17-34 17S23.5 43.5 14 32Z" fill="#E8E9DB" stroke="#315746" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="48" cy="32" r="14.5" fill="#B99A62"/>
+  <circle cx="48" cy="32" r="11.2" fill="#315746"/>
+  <circle cx="48" cy="32" r="6.8" fill="#F7F4E9"/>
+  <circle cx="48" cy="32" r="3.2" fill="#183C30"/>
+  <path d="M42.5 24.5c2.2-1.8 4.4-2.4 6.8-2" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity=".8"/>
+  <path d="M8 32h4M84 32h4" stroke="#B99A62" stroke-width="2" stroke-linecap="round"/>
+</svg>
