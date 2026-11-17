@@ -1,119 +1,514 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mohit & Ashwini — Wedding Day</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Mohit and Ashwini home">Mohit &amp; Ashwini</a>
-    <nav class="desktop-nav" aria-label="Main navigation">
-      <a href="#ceremony">The Ceremony</a><a href="#story">Our Story</a>
-      <a href="#gifts">Gifts &amp; Wishes</a><a href="#travel">Travel</a><a href="#faq">FAQs</a>
-    </nav>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="mobile-menu" aria-label="Mobile navigation">
-      <a href="#ceremony">The Ceremony</a><a href="#story">Our Story</a>
-      <a href="#gifts">Gifts &amp; Wishes</a><a href="#travel">Travel</a><a href="#faq">FAQs</a>
-    </nav>
-  </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#183d2e" />
+        <title>Mohit & Ashwini | The Engagement</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            .ganesh-mark {
+                width: 116px;
+                height: 130px;
+                margin: 12px auto 16px;
+                display: grid;
+                place-items: center;
+            }
+            .ganesh-mark img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                filter: drop-shadow(0 5px 10px #0002);
+            }
+            .timeline-symbol svg {
+                width: 27px;
+                height: 27px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 1.8;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+            .countdown {
+                max-width: 510px;
+                margin: 26px auto 52px;
+                padding: 22px 24px 18px;
+                border: 1px solid #d8c79f;
+                background: #fffdf5a8;
+                box-shadow: 0 12px 32px #1d39220d;
+            }
+            .countdown-label {
+                font-size: 8px;
+                letter-spacing: 2.5px;
+                color: #8a754d;
+                margin: 0 0 15px;
+            }
+            .countdown-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+            }
+            .countdown-grid div {
+                display: grid;
+                gap: 4px;
+                border-right: 1px solid #e5ddca;
+            }
+            .countdown-grid div:last-child {
+                border: 0;
+            }
+            .countdown-grid strong {
+                font:
+                    clamp(27px, 4vw, 38px) "Playfair Display",
+                    serif;
+                color: #244b3b;
+                font-weight: 500;
+                font-variant-numeric: tabular-nums;
+            }
+            .countdown-grid span {
+                font-size: 8px;
+                letter-spacing: 1.4px;
+                text-transform: uppercase;
+                color: #7b806f;
+            }
+            .countdown-note {
+                font:
+                    italic 12px "Playfair Display",
+                    serif;
+                color: #7b806f;
+                margin: 15px 0 0;
+            }
+            .pets-section {
+                position: relative;
+                isolation: isolate;
+                overflow: hidden;
+            }
+            .pets-section > *:not(.paw-field) {
+                position: relative;
+                z-index: 2;
+            }
+            .paw-field {
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+                overflow: hidden;
+                pointer-events: none;
+            }
+            .paw-print {
+                position: absolute;
+                left: var(--x);
+                top: var(--y);
+                font-size: var(--size);
+                opacity: 0;
+                color: #68836a;
+                filter: blur(0.15px);
+                animation: paw-drift var(--duration) ease-out forwards;
+                transform: rotate(var(--rotate));
+            }
+            @keyframes paw-drift {
+                0% {
+                    opacity: 0;
+                    transform: translate3d(0, 24px, 0) rotate(var(--rotate)) scale(0.72);
+                }
+                15% {
+                    opacity: 0.19;
+                }
+                70% {
+                    opacity: 0.12;
+                }
+                100% {
+                    opacity: 0;
+                    transform: translate3d(var(--dx), -125px, 0) rotate(calc(var(--rotate) + 24deg)) scale(1.12);
+                }
+            }
+            @media (max-width: 760px) {
+                .ganesh-mark {
+                    width: 100px;
+                    height: 115px;
+                }
+                .countdown {
+                    margin: 22px auto 42px;
+                    padding: 18px 10px;
+                }
+                .countdown-grid {
+                    gap: 3px;
+                }
+                .countdown-grid strong {
+                    font-size: 26px;
+                }
+                .countdown-grid span {
+                    font-size: 7px;
+                    letter-spacing: 1px;
+                }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .paw-print {
+                    animation: none !important;
+                    display: none !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="loader" aria-hidden="true"><span>मंगलम्</span><i></i></div>
+        <header class="header">
+            <a class="logo" href="#home">M<span>&</span>A</a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="#story">Our Story</a><a href="#moments">Our Memories</a><a href="#schedule">Celebration</a>
+                <a href="#venue">Venue</a><a href="#pets">Special</a>
+            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        </header>
 
-  <main id="top">
-    <section class="hero-photo">
-      <div class="hero-card">
-        <p class="eyebrow">Together with our families</p>
-        <h1>IT'S OUR<br>ENGAGEMENT DAY</h1>
-        <div class="champagne" aria-hidden="true">♧</div>
-        <p class="hero-names">Mohit &amp; Ashwini<br>are getting Engaged</p>
-        <p class="hero-detail">Ceremony &amp; Celebration<br>27th Dec 2026 · 6:30 PM onwards <br>Kolhapur</p>
-        <p class="hero-note">Come join us for a joyful day of vows, laughter and dancing as we begin our forever together.</p>
-        <a class="pill-button" href="#ceremony">EVENT DETAILS</a>
-      </div>
-    </section>
+        <main>
+            <section class="hero" id="home">
+                <div class="hero-image" aria-hidden="true"></div>
+                <div class="hero-shade"></div>
+                <div class="hero-content">
+                    <p class="sanskrit">॥ श्री गणेशाय नमः ॥</p>
+                    <div class="ganesh-mark" aria-label="Cute Lord Ganesha illustration">
+                        <img src="photos/ganpati.svg" alt="Cute Lord Ganesha seated on a lotus" />
+                    </div>
+                    <p class="eyebrow">With the blessings of our families</p>
+                    <h1>Mohit <em>&</em> Ashwini</h1>
+                    <p class="hero-subtitle">are getting engaged</p>
+                    <div class="hero-rule"><span>✦</span></div>
+                    <p class="hero-date">27 December 2026 <b>·</b> 6:30 PM ONWARDS</p>
+                    <p class="hero-place">Heritage Resort · Kolhapur</p>
+                    <a class="round-link" href="#schedule">Discover our day <span>↓</span></a>
+                </div>
+                <div class="hero-side-note">A NEW CHAPTER BEGINS · 27.12.2026</div>
+            </section>
 
-    <section class="intro-strip">
-      <div class="photo-band" role="img" aria-label="A romantic wedding detail photograph"></div>
-      <div class="narrow-copy">
-        <p class="eyebrow">A new forever starts here</p>
-        <p>We’re so excited to celebrate our favorite people in one place. We hope this day feels full of laughter and joy, and that you’ll be part of the wonderful memories we make.</p>
-      </div>
-    </section>
+            <section class="blessing reveal">
+                <p class="sanskrit dark">॥ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ॥</p>
+                <p class="blessing-line">A little blessing, a lot of love,<br />and a lifetime of togetherness.</p>
+                <span class="tiny-flower">✽</span>
+                <p class="blessing-small">
+                    Together with our families, we invite you to be part of a day that means the world to us.
+                </p>
+            </section>
 
-    <section class="ceremony section-pad" id="ceremony">
-      <div class="icon-line" aria-hidden="true">♡</div>
-      <p class="eyebrow">Join us for</p>
-      <h2>The Ceremony</h2>
-      <p class="event-date">Sunday, December 27, 2026</p>
-      <p>6:30 pm onwards</p>
-      <p>Heritage Resort<br>NH-4, Kolhapur</p>
-      <a class="pill-button" href="https://www.google.com/maps/dir//Heritage+Resort+%7C+Family+Resort+%7C+Nature+Resort+%7C+Pet+Friendly,+Mattivade+Village+Road,+Near+Kognoli+Toll+Plaza,+NH-4,+Kolhapur+Belgaum+Road,+Karnur,+Kagal,+Kolhapur,+Maharashtra+416216/@16.527707,74.3089552,18z/data=!4m19!1m10!3m9!1s0x3bc0f98a1f007937:0xc16d7737c88de4ce!2sHeritage+Resort+%7C+Family+Resort+%7C+Nature+Resort+%7C+Pet+Friendly!5m2!4m1!1i2!8m2!3d16.5276042!4d74.3102293!16s%2Fg%2F11rpdxqjj!4m7!1m0!1m5!1m1!1s0x3bc0f98a1f007937:0xc16d7737c88de4ce!2m2!1d74.3102293!2d16.5276042?entry=ttu&g_ep=EgoyMDI2MTExNS4wIKXMDSoASAFQAw%3D%3Ds">VIEW MAP</a>
-    </section>
+            <section class="story section" id="story">
+                <div class="story-photo photo-frame reveal">
+                    <img
+                        src="photos/couple-01.jpg"
+                        alt="Mohit and Ashwini together"
+                        onerror="this.style.display='none'"
+                    />
+                    <span class="photo-placeholder"
+                        ><small>OUR FIRST FEATURED PHOTO</small><b>Add couple-01.jpg</b></span
+                    >
+                </div>
+                <div class="story-copy reveal">
+                    <p class="eyebrow">A little bit of us</p>
+                    <h2>Our Story<span class="gold-dot">.</span></h2>
+                    <p class="script-line">Two people, one beautiful story.</p>
+                    <p>
+                        It all started with a very intentional message supposedly to find a gift for a common friend. A
+                        perfectly innocent excuse, of course… with just a tiny ulterior motive: to start a conversation
+                    </p>
+                    <p>
+                        One conversation turned into many little chats turned into favourite moments and somewhere along
+                        the way we became each other’s favourite notification.
+                    </p>
+                    <p>
+                        From soft launch at Sailee’s wedding and alot of memories later we’re officially going from soft
+                        launch to hard launch!
+                    </p>
+                    <p>
+                        Turns out, the best things sometimes begin with a message that wasn’t entirely about finding a
+                        gift...
+                    </p>
+                    <div class="signature">Mohit <span>&</span> Ashwini</div>
+                </div>
+            </section>
 
-    <section class="story section-pad" id="story">
-      <div class="story-image" role="img" aria-label="Wedding photograph"></div>
-      <article class="story-card">
-        <p class="eyebrow">From one message<br>to a lifetime</p>
-        <h2>Our Story</h2>
-        <p>Mohit and Ashwini’s story is made up of little moments, shared laughter and the kind of connection that makes every day brighter.</p>
-        <p>From the first hello to all the adventures still ahead, we’re grateful to have found each other. Now we can’t wait to celebrate this next chapter with our favorite people.</p>
-      </article>
-    </section>
+            <section class="gallery-section" id="moments">
+                <div class="gallery-heading reveal">
+                    <p class="eyebrow">Little moments, big memories</p>
+                    <h2>Some of favourite <i>memories</i></h2>
+                    <p>Scroll through a few pieces of our story.</p>
+                </div>
+                <div class="gallery-toolbar">
+                    <span>THE TWO OF US · 01—08</span>
+                    <div class="gallery-controls">
+                        <button class="gallery-prev" aria-label="Previous photos">←</button
+                        ><button class="gallery-next" aria-label="Next photos">→</button>
+                    </div>
+                </div>
+                <div class="gallery-track" tabindex="0" aria-label="Horizontal couple photo gallery">
+                    <figure class="gallery-card portrait">
+                        <img src="photos/couple-02.jpg" alt="Couple photo 2" onerror="this.style.display='none'" /><span
+                            class="photo-placeholder"
+                            ><small>VERTICAL PHOTO</small><b>couple-02.jpg</b></span
+                        >
+                    </figure>
+                    <figure class="gallery-card landscape">
+                        <img src="photos/couple-03.jpg" alt="Couple photo 3" onerror="this.style.display='none'" /><span
+                            class="photo-placeholder"
+                            ><small>HORIZONTAL PHOTO</small><b>couple-03.jpg</b></span
+                        >
+                    </figure>
+                    <figure class="gallery-card portrait">
+                        <img src="photos/couple-04.jpg" alt="Couple photo 4" onerror="this.style.display='none'" /><span
+                            class="photo-placeholder"
+                            ><small>VERTICAL PHOTO</small><b>couple-04.jpg</b></span
+                        >
+                    </figure>
+                    <figure class="gallery-card landscape">
+                        <img src="photos/couple-05.jpg" alt="Couple photo 5" onerror="this.style.display='none'" /><span
+                            class="photo-placeholder"
+                            ><small>HORIZONTAL PHOTO</small><b>couple-05.jpg</b></span
+                        >
+                    </figure>
+                    <figure class="gallery-card portrait">
+                        <img src="photos/couple-06.jpg" alt="Couple photo 6" onerror="this.style.display='none'" /><span
+                            class="photo-placeholder"
+                            ><small>VERTICAL PHOTO</small><b>couple-06.jpg</b></span
+                        >
+                    </figure>
+                    <figure class="gallery-card portrait">
+                        <img src="photos/couple-07.jpg" alt="Couple photo 7" onerror="this.style.display='none'" /><span
+                            class="photo-placeholder"
+                            ><small>VERTICAL PHOTO</small><b>couple-07.jpg</b></span
+                        >
+                    </figure>
+                    <figure class="gallery-card landscape">
+                        <img src="photos/couple-08.jpg" alt="Couple photo 8" onerror="this.style.display='none'" /><span
+                            class="photo-placeholder"
+                            ><small>HORIZONTAL PHOTO</small><b>couple-08.jpg</b></span
+                        >
+                    </figure>
+                    <figure class="gallery-card portrait">
+                        <img src="photos/couple-09.jpg" alt="Couple photo 9" onerror="this.style.display='none'" /><span
+                            class="photo-placeholder"
+                            ><small>VERTICAL PHOTO</small><b>couple-09.jpg</b></span
+                        >
+                    </figure>
+                    <figure class="gallery-card portrait">
+                        <img
+                            src="photos/couple-10.jpg"
+                            alt="Couple photo 10"
+                            onerror="this.style.display='none'"
+                        /><span class="photo-placeholder"><small>VERTICAL PHOTO</small><b>couple-10.jpg</b></span>
+                    </figure>
+                </div>
+                <div class="gallery-progress"><span></span></div>
+                <p class="swipe-hint">DRAG OR SWIPE TO EXPLORE <span>⟶</span></p>
+            </section>
 
-    <section class="gifts section-pad" id="gifts">
-      <div class="gift-heading">
-        <h2>WISHES <span>❧</span> GIFTS &amp; WISHES</h2>
-      </div>
-      <div class="gift-copy">
-        <p class="eyebrow">Your presence at our engagement<Ourbr>means more to us than anything</p>
-      </div>
-    </section>
+            <section class="schedule section" id="schedule">
+                <div class="schedule-top reveal">
+                    <p class="eyebrow">Save the date · Sunday</p>
+                    <h2>The celebration</h2>
+                    <p class="big-date">27 <span>·</span> 12 <span>·</span> 2026</p>
+                    <p class="schedule-place">Heritage Resort, Kolhapur</p>
+                    <div class="countdown" aria-label="Countdown to the engagement">
+                        <p class="countdown-label">COUNTING DOWN TO OUR DAY</p>
+                        <div class="countdown-grid">
+                            <div><strong id="cd-days">—</strong><span>Days</span></div>
+                            <div><strong id="cd-hours">—</strong><span>Hours</span></div>
+                            <div><strong id="cd-minutes">—</strong><span>Minutes</span></div>
+                            <div><strong id="cd-seconds">—</strong><span>Seconds</span></div>
+                        </div>
+                        <p class="countdown-note" id="countdown-note">27 December 2026 - 6:30 PM</p>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <article class="timeline-item reveal">
+                        <div class="time">06:30 <small>PM</small></div>
+                        <div class="timeline-symbol">ॐ</div>
+                        <div>
+                            <h3>Ganesh Pooja</h3>
+                            <p>Beginning the evening with blessings, gratitude and auspicious new beginnings.</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div class="time">07:45 <small>PM</small></div>
+                        <div class="timeline-symbol" aria-label="Two rings">
+                            <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+                                <circle cx="18" cy="26" r="10" />
+                                <circle cx="30" cy="22" r="10" />
+                                <path d="M14 11l4-5 4 5M26 7l4-5 4 5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Ring Exchange Ceremony</h3>
+                            <p>A little promise, a very big feeling — the moment we make it official.</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div class="time">08:00 <small>PM</small></div>
+                        <div class="timeline-symbol" aria-label="Dinner place setting">
+                            <svg
+                                viewBox="0 0 64 64"
+                                role="img"
+                                aria-hidden="true"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M9 8v17 M4 8v10 M14 8v10 M9 25v31" />
+                                <circle cx="33" cy="32" r="15" />
+                                <circle cx="33" cy="32" r="11" />
+                                <path d="M55 8c-7 7-7 16 0 20v28" />
+                                <ellipse cx="55" cy="16" rx="4" ry="8" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Dinner</h3>
+                            <p>Good food, warm company and a night of happy celebrations.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
 
-    <section class="travel" id="travel">
-      <div class="travel-intro">
-        <p class="eyebrow">Travel plans for our guests</p>
-        <p>Thank you for traveling to celebrate with us. Here’s how to get to Heritage Resort, with a few helpful tips so your journey is as comfortable and easy as possible.</p>
-      </div>
-        <article class="travel-card">
-          <div class="travel-icon">🚘</div><h2>ARRIVING<br>BY CAR</h2>
-          <p>If you’re driving, enter Heritage into your maps app. Parking information and arrival guidance will be shared closer to the day.</p>
-        </article>
-      <div class="travel-foot">For any travel questions, please get in touch with our families.</div>
-    </section>
+            <section class="venue section" id="venue">
+                <div class="venue-image reveal">
+                    <div class="venue-image-label">THE PLACE WHERE WE CELEBRATE</div>
+                </div>
+                <div class="venue-copy reveal">
+                    <p class="eyebrow">Meet us here</p>
+                    <h2>A little getaway<br />for a big day</h2>
+                    <h3>Heritage Resort</h3>
+                    <p>Kolhapur, NH-4, Maharashtra, India</p>
+                    <p>
+                        We can't wait to welcome you for an evening of blessings, beautiful moments and celebration.
+                        Save the location and we'll see you there!
+                    </p>
+                    <a
+                        class="map-button"
+                        href="https://www.google.com/maps/search/?api=1&query=Heritage+Resort+Kolhapur+Maharashtra"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >VIEW MAP <span>↗</span></a
+                    >
+                    <p class="map-note">Opens Google Maps in a new tab.</p>
+                </div>
+            </section>
 
-    <section class="closing">
-      <div class="closing-photo" role="img" aria-label="The couple walking together"></div>
-      <div class="closing-panel">
-        <p class="eyebrow">We can't wait to celebrate</p>
-        <div class="monogram">Mohit &amp; Ashwini</div>
-        <div class="car-art" aria-hidden="true">♧ ♧</div>
-        <p class="eyebrow">EVENT DETAILS:</p>
-        <p>27 th Dec 2026<br>Heritage Resort</p>
-        <p class="eyebrow">CEREMONY &amp; CELEBRATION</p>
-        <p>Ganesh Pooja<br>Ring Exchange</p>
-        <a class="light-button" href="#top">BACK TO TOP</a>
-      </div>
-    </section>
-  </main>
+            <section class="pets-section" id="pets">
+                <div class="paw-field" aria-hidden="true"></div>
+                <div class="pets-heading reveal">
+                    <p class="eyebrow">A very important announcement</p>
+                    <h2>Special invitation<br />from these <i>cuties</i></h2>
+                    <p>
+                        Psst.. Human guests, We have an important announcement!!
+                    </p>
+                    <p>
+                        Our fellow humans are getting engaged and naturally we are the most execited ones in the family!
+Bring your smiles,your happy heart and maybe few treats (we wont say no)
+                    </p>
 
-  <footer>
-    <p>© 2026 Mohit &amp; Ashwini · Made with love</p>
-  </footer>
-  <script>
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.mobile-menu');
-    toggle.addEventListener('click', () => {
-      const open = menu.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      menu.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }));
-  </script>
-</body>
+                </div>
+                <div class="pet-gallery">
+                    <article class="pet-card reveal">
+                        <div class="pet-photo">
+                            <img src="photos/cat-portrait.jpg" alt="KITTY" onerror="this.style.display='none'" /><span
+                                class="photo-placeholder"
+                                ><small>ADD YOUR CAT'S PHOTO</small><b>cat-portrait.jpg</b></span
+                            >
+                        </div>
+                        <p class="pet-label">THE NOSY QUEEN</p>
+                        <h3>Kitty</h3>
+                        <span class="paw">🐾</span>
+                    </article>
+                    <article class="pet-card reveal">
+                        <div class="pet-photo">
+                            <img src="photos/dog-portrait.jpg" alt="MIA" onerror="this.style.display='none'" /><span
+                                class="photo-placeholder"
+                                ><small>ADD YOUR DOG'S PHOTO</small><b>dog-portrait.jpg</b></span
+                            >
+                        </div>
+                        <p class="pet-label">THE CHIEF TREAT COLLECTOR</p>
+                        <h3>Mia</h3>
+                        <span class="paw">🐾</span>
+                    </article>
+                </div>
+            </section>
+
+            <section class="finale">
+                <div class="finale-photo"></div>
+                <div class="finale-overlay"></div>
+                <div class="finale-copy reveal">
+                    <p class="sanskrit">॥ शुभमस्तु ॥</p>
+                    <p class="eyebrow">One promise · countless memories</p>
+                    <h2>See you on<br /><i>our special day.</i></h2>
+                    <p>27 December 2026 · 6:30 PM Onwards</p>
+                    <div class="final-monogram">M <span>&</span> A</div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <span>MADE WITH LOVE</span><span>MOHIT &amp; ASHWINI · 27.12.2026</span><a href="#home">BACK TO TOP ↑</a>
+        </footer>
+        <script src="script.js"></script>
+        <script>
+            // Countdown target is 27 December 2026, 6:30 PM India Standard Time.
+            (() => {
+                const target = new Date("2026-12-27T18:30:00+05:30").getTime();
+                const fields = {
+                    days: document.getElementById("cd-days"),
+                    hours: document.getElementById("cd-hours"),
+                    minutes: document.getElementById("cd-minutes"),
+                    seconds: document.getElementById("cd-seconds"),
+                };
+                const note = document.getElementById("countdown-note");
+                const tick = () => {
+                    let remaining = target - Date.now();
+                    if (remaining <= 0) {
+                        Object.values(fields).forEach((el) => {
+                            if (el) el.textContent = "00";
+                        });
+                        if (note)
+                            note.textContent =
+                                remaining > -86400000 ? "It's celebration time!" : "A beautiful day to remember.";
+                        return;
+                    }
+                    const days = Math.floor(remaining / 86400000);
+                    remaining %= 86400000;
+                    const hours = Math.floor(remaining / 3600000);
+                    remaining %= 3600000;
+                    const minutes = Math.floor(remaining / 60000);
+                    const seconds = Math.floor((remaining % 60000) / 1000);
+                    fields.days.textContent = String(days).padStart(2, "0");
+                    fields.hours.textContent = String(hours).padStart(2, "0");
+                    fields.minutes.textContent = String(minutes).padStart(2, "0");
+                    fields.seconds.textContent = String(seconds).padStart(2, "0");
+                };
+                tick();
+                setInterval(tick, 1000);
+            })();
+            // Soft paw prints appear at varied positions and drift upward as they fade.
+            (() => {
+                const section = document.querySelector(".pets-section");
+                const field = section && section.querySelector(".paw-field");
+                if (!field || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+                const spawn = () => {
+                    const paw = document.createElement("span");
+                    paw.className = "paw-print";
+                    paw.textContent = "🐾";
+                    paw.style.setProperty("--x", 3 + Math.random() * 90 + "%");
+                    paw.style.setProperty("--y", 25 + Math.random() * 72 + "%");
+                    paw.style.setProperty("--size", 27 + Math.random() * 15 + "px");
+                    paw.style.setProperty("--duration", 5.5 + Math.random() * 4 + "s");
+                    paw.style.setProperty("--rotate", -35 + Math.random() * 70 + "deg");
+                    paw.style.setProperty("--dx", -28 + Math.random() * 56 + "px");
+                    field.appendChild(paw);
+                    paw.addEventListener("animationend", () => paw.remove(), { once: true });
+                };
+                for (let i = 0; i < 9; i++) setTimeout(spawn, i * 430);
+                setInterval(spawn, 1050);
+            })();
+        </script>
+    </body>
 </html>
