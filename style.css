@@ -719,30 +719,24 @@ footer {
   font-size: 8px;
   letter-spacing: 2px;
 }
-/* Scroll reveals: soft blur + lift, with a little personality per section. */
+
 .reveal {
   opacity: 0;
-  filter: blur(5px);
-  transform: translateY(45px) scale(0.99);
-  transition: opacity 0.85s ease, filter 0.85s ease,
-    transform 0.95s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform: translateY(45px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .reveal.visible {
   opacity: 1;
-  filter: blur(0);
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 .story-photo.reveal {
   transform: translateY(55px) rotate(-1.5deg);
-  clip-path: inset(5% 3% 5% 3%);
 }
 .story-photo.reveal.visible {
   transform: translateY(0) rotate(0);
-  clip-path: inset(0);
 }
 .timeline-item.reveal {
   transform: translateX(-35px);
-  filter: blur(3px);
 }
 .timeline-item.reveal.visible {
   transform: translateX(0);
@@ -789,9 +783,10 @@ footer {
   .reveal,
   .gallery-card {
     opacity: 1;
-    filter: none;
     transform: none;
-    clip-path: none;
+  }
+ .gallery-card.gallery-visible {
+    transform: none;
   }
 }
 @media (max-width: 760px) {
