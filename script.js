@@ -20,14 +20,13 @@ window.addEventListener('load', () => {
   setTimeout(() => document.querySelector('.loader')?.classList.add('done'), 450);
 });
 
-const revealObserver = new IntersectionObserver((entries) => {
+const revealObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry, index) => {
     if (entry.isIntersecting) {
       entry.target.style.transitionDelay = `${Math.min(index % 4, 3) * 90}ms`;
       entry.target.classList.add('visible');
-    } else {
-      entry.target.style.transitionDelay = '0ms';
-      entry.target.classList.remove('visible');    }
+      observer.unobserve(entry.target);
+    }
   });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal, .timeline-item, .gallery-card').forEach(el => revealObserver.observe(el));
@@ -68,31 +67,6 @@ track.addEventListener('pointermove', e => {
   isDown = false; track.classList.remove('dragging');
 }));
 updateProgress();
-
-// Animate gallery cards as they enter from either side, including reverse swipes.
-let previousGalleryScroll = track.scrollLeft;
-let galleryDirection = 1; // 1 = moving toward later photos, -1 = moving back.
-track.addEventListener('scroll', () => {
-  const current = track.scrollLeft;
-  if (Math.abs(current - previousGalleryScroll) > 1) {
-    galleryDirection = current > previousGalleryScroll ? 1 : -1;
-    previousGalleryScroll = current;
-  }
-}, { passive: true });
-const galleryCards = track.querySelectorAll('.gallery-card');
-const galleryCardObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    const card = entry.target;
-    if (entry.isIntersecting) {
-      // Cards entering from the right start slightly right; reverse swipe starts left.
-      card.style.setProperty('--gallery-enter-x', galleryDirection > 0 ? '34px' : '-34px');
-      requestAnimationFrame(() => card.classList.add('gallery-visible'));
-    } else {
-      card.classList.remove('gallery-visible');
-    }
-  });
-}, { root: track, threshold: 0.18 });
-galleryCards.forEach(card => galleryCardObserver.observe(card));
 
 // Gentle parallax on large screens only.
 const heroImage = document.querySelector('.hero-image');
