@@ -1,3 +1,20 @@
+// On browser refresh, return the invitation to its home section.
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+const navigationEntry = performance.getEntriesByType('navigation')[0];
+if (navigationEntry && navigationEntry.type === 'reload') {
+  // Remove any saved section hash so refresh always starts at the top.
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+  window.addEventListener('pageshow', () => {
+    window.scrollTo(0, 0);
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+  }, { once: true });
+}
+
 // Scroll reveals, mobile navigation and draggable photo carousel.
 window.addEventListener('load', () => {
   setTimeout(() => document.querySelector('.loader')?.classList.add('done'), 450);
