@@ -1004,3 +1004,64 @@ footer {
     display: none;
   }
 }
+
+
+/* Timeline: centre the connector behind each icon badge */
+.timeline:before {
+  left: 154px;
+  z-index: 0;
+}
+.timeline-item {
+  grid-template-columns: 100px 58px 1fr;
+  gap: 25px;
+  align-items: center;
+}
+.timeline-symbol {
+  position: relative;
+  z-index: 2;
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  flex: 0 0 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--cream);
+  overflow: visible;
+}
+.timeline-symbol svg {
+  display: block;
+  width: 42px;
+  height: 42px;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+}
+.timeline-symbol[aria-label="Dinner place setting"] svg {
+  width: 44px;
+  height: 44px;
+}
+@media (max-width: 760px) {
+  .timeline:before {
+    left: 105px;
+  }
+  .timeline-item {
+    grid-template-columns: 66px 50px 1fr;
+    gap: 14px;
+    align-items: center;
+  }
+  .timeline-symbol {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    flex-basis: 50px;
+  }
+  .timeline-symbol svg {
+    width: 36px;
+    height: 36px;
+  }
+  .timeline-symbol[aria-label="Dinner place setting"] svg {
+    width: 38px;
+    height: 38px;
+  }
