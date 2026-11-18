@@ -30,6 +30,12 @@
                 object-fit: contain;
                 filter: drop-shadow(0 5px 10px #0002);
             }
+.ganesh-blessing-link{position:relative;color:inherit;text-decoration:none;cursor:pointer;transition:transform .25s ease}
+    .ganesh-blessing-link:hover{transform:translateY(-3px)}
+    .ganesh-tap-hint{position:absolute;left:50%;bottom:-9px;transform:translateX(-50%);white-space:nowrap;font:9px 'DM Sans',sans-serif;letter-spacing:1px;color:#e6d4a5;opacity:0;transition:opacity .25s ease}
+    .ganesh-blessing-link:hover .ganesh-tap-hint,.ganesh-blessing-link:focus-visible .ganesh-tap-hint{opacity:1}
+    .ganesh-blessing-link:focus-visible{outline:1px solid #d8c79f;outline-offset:5px;border-radius:8px}
+
             .timeline-symbol svg {
                 width: 27px;
                 height: 27px;
@@ -175,9 +181,7 @@
                 <div class="hero-shade"></div>
                 <div class="hero-content">
                     <p class="sanskrit">॥ श्री गणेशाय नमः ॥</p>
-                    <div class="ganesh-mark" aria-label="Cute Lord Ganesha illustration">
-                        <img src="photos/ganpati.svg" alt="Cute Lord Ganesha seated on a lotus" />
-                    </div>
+                    <a class="ganesh-mark ganesh-blessing-link" href="ganpati-blessings.html" aria-label="Open Ganpati Bappa's blessings" title="A blessing for the journey ahead"><img src="photos/ganpati.svg" alt="Open Ganpati Bappa's blessings"><span class="ganesh-tap-hint">A little blessing awaits</span></a>
                     <p class="eyebrow">With the blessings of our families</p>
                     <h1>Mohit <em>&</em> Ashwini</h1>
                     <p class="hero-subtitle">are getting engaged</p>
