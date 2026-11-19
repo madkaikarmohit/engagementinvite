@@ -73,6 +73,8 @@ button {
   color: white;
   border-bottom: 1px solid #ffffff35;
 }
+.header{position:fixed;transition:background .5s,backdrop-filter .5s,height .4s}
+.header.stuck{background:#183d2eeb;backdrop-filter:blur(8px);height:58px}
 .logo {
   font: 30px "Playfair Display", serif;
   letter-spacing: -3px;
