@@ -134,9 +134,3 @@ window.addEventListener('scroll', () => {
     });
   });
 })();
-
-
-const header = document.querySelector(".header");
-window.addEventListener('scroll', () => {
-	header.classList.toggle('stuck', window.scrollY > 0);
-});
