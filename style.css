@@ -1065,3 +1065,13 @@ footer {
     width: 38px;
     height: 38px;
   }
+
+.timeline-item .time{
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 5px;
+  text-aligh: left;
+  white-space: nowrap;
+}
+
