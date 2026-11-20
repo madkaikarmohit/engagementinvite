@@ -174,9 +174,48 @@
                     font-size: 14px;
                 }
             }
+
+            /* Ganpati flower fall animation */
+            #ganpati-flower-layer {
+                position: fixed;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                pointer-events: none;
+                z-index: 99999;
+            }
+            .ganpati-falling-flower {
+                position: absolute;
+                top: -45px;
+                left: 0;
+                display: block;
+                line-height: 1;
+                user-select: none;
+                pointer-events: none;
+                will-change: transform;
+                animation: ganpati-flower-fall linear forwards;
+                text-shadow: 0 1px 3px rgba(80, 55, 20, 0.12);
+            }
+            @keyframes ganpati-flower-fall {
+                0% {
+                    transform: translate3d(0, -6vh, 0) rotate(0deg);
+                }
+                50% {
+                    transform: translate3d(var(--flower-drift), 52vh, 0) rotate(180deg);
+                }
+                100% {
+                    transform: translate3d(calc(var(--flower-drift) * -0.65), 116vh, 0) rotate(360deg);
+                }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                #ganpati-flower-layer { display: none; }
+            }
+
         </style>
     </head>
     <body>
+        <div id="ganpati-flower-layer" aria-hidden="true"></div>
         <main class="page">
             <p class="ornament" aria-hidden="true">✦　✽　✦</p>
             <p class="sanskrit">॥ श्री गणेशाय नमः ॥</p>
@@ -203,5 +242,50 @@ video.volume = 0.10;
             <p class="divider" aria-hidden="true">✧ ✧ ✧</p>
             <a class="back" href="index.html"><span aria-hidden="true">←</span> Back to the invitation</a>
         </main>
+
+<script>
+(() => {
+    const startFlowerAnimation = () => {
+        const layer = document.getElementById("ganpati-flower-layer");
+        if (!layer || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        const flowers = ["🌺", "🌸"];
+
+        function createFlower() {
+            const flower = document.createElement("span");
+            flower.className = "ganpati-falling-flower";
+            flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+
+            const duration = 20 + Math.random() * 12;
+            flower.style.left = `${Math.random() * 100}vw`;
+            flower.style.fontSize = `${20 + Math.random() * 12}px`;
+            flower.style.opacity = `${0.45 + Math.random() * 0.35}`;
+            flower.style.setProperty("--flower-drift", `${-32 + Math.random() * 64}px`);
+            flower.style.animationDuration = `${duration}s`;
+
+            layer.appendChild(flower);
+            window.setTimeout(() => flower.remove(), duration * 1000 + 500);
+        }
+
+        function scheduleNextFlower() {
+            createFlower();
+            window.setTimeout(scheduleNextFlower, 1200 + Math.random() * 1800);
+        }
+
+        // Start with a few staggered petals so the effect is immediately visible.
+        createFlower();
+        window.setTimeout(createFlower, 700);
+        window.setTimeout(createFlower, 1400);
+        window.setTimeout(scheduleNextFlower, 2200);
+    };
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startFlowerAnimation, { once: true });
+    } else {
+        startFlowerAnimation();
+    }
+})();
+</script>
+
     </body>
 </html>
