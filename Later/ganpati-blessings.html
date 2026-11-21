@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#183d2e" />
+        <title>Ganpati Bappa's Blessings | Mohit & Ashwini</title>
+        <link rel="icon" type="image/svg.xml" href="photos/favicon.svg" />
+        <link rel="icon" type="image/jpg" size="512*512" href="photos/favicon.jpg" />
+        <link rel="shortcut icon" href="photos/favicon.ico" />
+        <link rel="apple-touch-icon" href="photos/favicon.jpg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --green: #183d2e;
+                --deep: #102c21;
+                --ivory: #fbf8ef;
+                --gold: #b79a5a;
+                --muted: #777b69;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                min-height: 100vh;
+                background: radial-gradient(ellipse at 50% 8%, #fffdf7 0%, var(--ivory) 58%, #f1ead9 100%);
+                color: var(--green);
+                font-family: "DM Sans", sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 28px 18px;
+                overflow-x: hidden;
+            }
+            .page {
+                width: min(100%, 760px);
+                text-align: center;
+                position: relative;
+                padding: 38px 24px 34px;
+                border: 1px solid #d9c99f;
+                background: #fffdf6cc;
+                box-shadow: 0 22px 70px #183d2e12;
+            }
+            .ornament {
+                color: var(--gold);
+                letter-spacing: 12px;
+                font-size: 15px;
+                margin: 0 0 24px 12px;
+            }
+            .sanskrit {
+                font-family: "Playfair Display", serif;
+                font-size: clamp(14px, 2.5vw, 18px);
+                letter-spacing: 1px;
+                color: #8c7547;
+                margin: 0 0 13px;
+            }
+            h1 {
+                font:
+                    clamp(34px, 7vw, 54px) "Great Vibes",
+                    cursive;
+                font-weight: 400;
+                margin: 0 0 10px;
+                color: var(--green);
+            }
+            .intro {
+                font:
+                    italic 15px/1.8 "Playfair Display",
+                    serif;
+                color: #737865;
+                margin: 0 auto 28px;
+                max-width: 470px;
+            }
+            .video-frame {
+                width: min(100%, 590px);
+                aspect-ratio: 16/9;
+                margin: 0 auto 24px;
+                padding: 10px;
+                border: 1px solid var(--gold);
+                background: #f5efdf;
+                box-shadow: 0 10px 30px #183d2e12;
+                display: grid;
+                place-items: center;
+                position: relative;
+            }
+            .video-placeholder {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                background: linear-gradient(145deg, #e9e1ce, #f8f4e9 52%, #e4dcc8);
+                color: var(--green);
+                border: 1px dashed #b79a5a;
+            }
+            .play-icon {
+                width: 48px;
+                height: 48px;
+                border: 1px solid var(--gold);
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                color: #987b43;
+                font-size: 19px;
+                padding-left: 3px;
+            }
+            .video-placeholder strong {
+                font:
+                    500 17px "Playfair Display",
+                    serif;
+            }
+            .video-placeholder small {
+                font-size: 9px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: #7f806d;
+            }
+            .video-frame video {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                background: #000;
+            }
+            .blessing {
+                font:
+                    italic 16px/1.8 "Playfair Display",
+                    serif;
+                color: #596b55;
+                margin: 0 auto 26px;
+            }
+            .divider {
+                color: var(--gold);
+                letter-spacing: 8px;
+                margin: 0 0 25px 8px;
+            }
+            .back {
+                display: inline-flex;
+                align-items: center;
+                gap: 9px;
+                padding: 12px 19px;
+                border: 1px solid #b79a5a;
+                color: var(--green);
+                text-decoration: none;
+                font-size: 10px;
+                letter-spacing: 1.6px;
+                text-transform: uppercase;
+                transition:
+                    background 0.2s,
+                    color 0.2s;
+            }
+            .back:hover {
+                background: var(--green);
+                color: var(--ivory);
+            }
+            @media (max-width: 480px) {
+                .page {
+                    padding: 30px 15px;
+                }
+                .video-frame {
+                    padding: 6px;
+                }
+                .intro {
+                    font-size: 14px;
+                }
+                .blessing {
+                    font-size: 14px;
+                }
+            }
+
+            /* Ganpati flower fall animation */
+            #ganpati-flower-layer {
+                position: fixed;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                pointer-events: none;
+                z-index: 99999;
+            }
+            .ganpati-falling-flower {
+                position: absolute;
+                top: -45px;
+                left: 0;
+                display: block;
+                line-height: 1;
+                user-select: none;
+                pointer-events: none;
+                will-change: transform;
+                animation: ganpati-flower-fall linear forwards;
+                text-shadow: 0 1px 3px rgba(80, 55, 20, 0.12);
+            }
+            @keyframes ganpati-flower-fall {
+                0% { transform: translate3d(0, -6vh, 0) rotate(0deg); }
+                50% { transform: translate3d(var(--flower-drift), 52vh, 0) rotate(180deg); }
+                100% { transform: translate3d(calc(var(--flower-drift) * -0.65), 116vh, 0) rotate(360deg); }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                #ganpati-flower-layer { display: none; }
+            }
+
+            /* Modak-catching mouse */
+.rm-stage{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:20}
+.rm-modak,.rm-held{position:absolute;left:0;top:0;will-change:transform}
+.rm-modak svg,.rm-held svg{display:block;width:100%;height:100%;filter:drop-shadow(0 4px 5px #183d2e33)}
+.rm-rat{position:absolute;left:0;top:0;will-change:transform}
+.rm-bob{position:relative;width:100%;height:100%;transform-origin:50% 90%}
+.rm-bob>svg{display:block;width:100%;height:100%;overflow:visible}
+.rm-held{display:none;left:calc(84% - var(--mw)/2);top:calc(36% - var(--mw)*.55)}
+.rm-carry .rm-held{display:block}
+.rm-spark{position:absolute;left:0;top:0;color:#d9a62e;font-size:18px;line-height:1;text-shadow:0 0 6px #ffe9a8}
+
+/* rat parts */
+.rm-arm{transition:transform .22s cubic-bezier(.3,1.6,.5,1)}
+.rm-tail{transform-origin:100px 128px;animation:rm-wag .5s ease-in-out infinite alternate}
+.rm-eyes-happy,.rm-mouth-open{display:none}
+.rm-cheer .rm-eyes-happy,.rm-cheer .rm-mouth-open{display:inline}
+.rm-cheer .rm-eyes-normal,.rm-cheer .rm-mouth-closed{display:none}
+.rm-eyes-normal{transition:transform .2s}
+.rm-look .rm-eyes-normal{transform:translateY(-3px)}
+.rm-look .rm-head{transform:rotate(-5deg);transform-origin:70px 80px}
+.rm-look .rm-arm-l{transform:rotate(25deg)}.rm-look .rm-arm-r{transform:rotate(-25deg)}
+.rm-jump .rm-arm-l,.rm-cheer .rm-arm-l,.rm-carry .rm-arm-l{transform:rotate(150deg) scaleY(1.5)}
+.rm-jump .rm-arm-r,.rm-cheer .rm-arm-r,.rm-carry .rm-arm-r{transform:rotate(-115deg) scaleY(1.6)}
+.rm-run .rm-arm-l{animation:rm-swing .26s ease-in-out infinite alternate;transition:none}
+.rm-run:not(.rm-carry) .rm-arm-r{animation:rm-swing .26s ease-in-out infinite alternate-reverse;transition:none}
+.rm-run .rm-foot-l{animation:rm-step .26s ease-in-out infinite alternate}
+.rm-run .rm-foot-r{animation:rm-step .26s ease-in-out infinite alternate-reverse}
+.rm-run .rm-bob{animation:rm-hop .26s ease-in-out infinite}
+.rm-cheer .rm-bob{animation:rm-wiggle .3s ease-in-out infinite alternate}
+@keyframes rm-wag{from{transform:rotate(-10deg)}to{transform:rotate(12deg)}}
+@keyframes rm-swing{from{transform:rotate(-35deg)}to{transform:rotate(35deg)}}
+@keyframes rm-step{from{transform:translateY(0)}to{transform:translateY(-7px)}}
+@keyframes rm-hop{0%,100%{transform:rotate(9deg) scale(1.04,.95)}50%{transform:translateY(-9%) rotate(9deg) scale(.97,1.05)}}
+@keyframes rm-wiggle{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+        </style>
+    </head>
+    <body>
+        <div id="ganpati-flower-layer" aria-hidden="true"></div>
+        <main class="page">
+            <p class="ornament" aria-hidden="true">✦　✽　✦</p>
+            <p class="sanskrit">॥ श्री गणेशाय नमः ॥</p>
+            <h1>Blessing for the journey ahead</h1>
+            <p class="intro">
+                Before the celebrations begin, we seek the blessings of Ganpati Bappa for a beautiful beginning and a
+                lifetime of togetherness.
+            </p>
+            <div class="video-frame">
+                <video autoplay controls playsinline loop preload="auto" aria-label="Ganpati Bappa giving his blessings">
+                    <source src="videos/ganpati-blessing.mp4" type="video/mp4" />
+                    Your browser does not support video playback.
+                </video>
+            </div>
+<script>
+const video = document.querySelector('video');
+video.volume = 0.10;
+</script>
+
+
+            <p class="blessing">
+                May Vighnaharta remove every obstacle<br />and bless this new chapter with joy, peace and prosperity.
+            </p>
+            <p class="divider" aria-hidden="true">✧ ✧ ✧</p>
+            <a class="back" href="invite.html"><span aria-hidden="true">←</span> Back to the invitation</a>
+        </main>
+        <script>
+            (() => {
+                const startFlowerAnimation = () => {
+                    const layer = document.getElementById("ganpati-flower-layer");
+                    if (!layer || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+                    const flowers = ["🌺", "🌸"];
+                    function createFlower() {
+                        const flower = document.createElement("span");
+                        flower.className = "ganpati-falling-flower";
+                        flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+                        const duration = 20 + Math.random() * 12;
+                        flower.style.left = `${Math.random() * 100}vw`;
+                        flower.style.fontSize = `${20 + Math.random() * 12}px`;
+                        flower.style.opacity = `${0.45 + Math.random() * 0.35}`;
+                        flower.style.setProperty("--flower-drift", `${-32 + Math.random() * 64}px`);
+                        flower.style.animationDuration = `${duration}s`;
+                        layer.appendChild(flower);
+                        window.setTimeout(() => flower.remove(), duration * 1000 + 500);
+                    }
+                    function scheduleNextFlower() {
+                        createFlower();
+                        window.setTimeout(scheduleNextFlower, 1200 + Math.random() * 1800);
+                    }
+                    createFlower();
+                    window.setTimeout(createFlower, 700);
+                    window.setTimeout(createFlower, 1400);
+                    window.setTimeout(scheduleNextFlower, 2200);
+                };
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", startFlowerAnimation, { once: true });
+                } else {
+                    startFlowerAnimation();
+                }
+            })();
+        </script>
+        <script>
+(() => { try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    const modak = (n) => `<svg viewBox="0 0 80 90"><defs>
+<radialGradient id="mg${n}" cx=".38" cy=".32" r=".85"><stop offset="0" stop-color="#fff6cf"/><stop offset=".55" stop-color="#f9d777"/><stop offset="1" stop-color="#e0a238"/></radialGradient>
+<clipPath id="mc${n}"><path d="M40 6C44 18 71 31 73 56C75 75 58 85 40 85C22 85 5 75 7 56C9 31 36 18 40 6Z"/></clipPath></defs>
+<path d="M40 6C44 18 71 31 73 56C75 75 58 85 40 85C22 85 5 75 7 56C9 31 36 18 40 6Z" fill="url(#mg${n})" stroke="#c98f2c" stroke-width="2.5" stroke-linejoin="round"/>
+<g clip-path="url(#mc${n})" fill="none" stroke="#e3b24e" stroke-width="2.4" stroke-linecap="round">
+<path d="M40 8C28 30 16 44 12 66"/><path d="M40 8C34 32 28 50 25 76"/><path d="M40 8C40 34 40 52 40 80"/><path d="M40 8C46 32 52 50 55 76"/><path d="M40 8C52 30 64 44 68 66"/></g>
+<path d="M40 6q2-5 8-4" fill="none" stroke="#c98f2c" stroke-width="2.5" stroke-linecap="round"/>
+<ellipse cx="25" cy="67" rx="6" ry="3.6" fill="#ff9f9a" opacity=".55"/><ellipse cx="55" cy="67" rx="6" ry="3.6" fill="#ff9f9a" opacity=".55"/>
+<circle cx="31" cy="59" r="3.6" fill="#4a2c1a"/><circle cx="49" cy="59" r="3.6" fill="#4a2c1a"/><circle cx="32.2" cy="57.8" r="1.2" fill="#fff"/><circle cx="50.2" cy="57.8" r="1.2" fill="#fff"/>
+<path d="M35 66Q40 72 45 66" fill="none" stroke="#4a2c1a" stroke-width="2" stroke-linecap="round"/>
+<ellipse cx="26" cy="40" rx="5" ry="2.5" fill="#fff" opacity=".6" transform="rotate(-35 26 40)"/></svg>`;
+    const F = '#a99a94', L = '#f4e6da', O = '#6b5a55';
+    const rat = `<svg viewBox="-30 -20 200 180">
+<path class="rm-tail" d="M100 128C135 132 150 108 136 92C130 85 138 78 146 84" fill="none" stroke="#e9a5a0" stroke-width="5" stroke-linecap="round"/>
+<ellipse class="rm-foot-l" cx="54" cy="138" rx="14" ry="8" fill="${F}" stroke="${O}" stroke-width="2.5"/><ellipse class="rm-foot-r" cx="86" cy="138" rx="14" ry="8" fill="${F}" stroke="${O}" stroke-width="2.5"/>
+<g class="rm-arm rm-arm-l" style="transform-origin:44px 98px"><ellipse cx="44" cy="112" rx="7" ry="16" fill="${F}" stroke="${O}" stroke-width="2.5"/><circle cx="44" cy="126" r="6.5" fill="#f6b8aa" stroke="${O}" stroke-width="2"/></g>
+<ellipse cx="70" cy="108" rx="30" ry="33" fill="${F}" stroke="${O}" stroke-width="2.5"/><ellipse cx="70" cy="114" rx="19" ry="23" fill="${L}"/>
+<g class="rm-arm rm-arm-r" style="transform-origin:96px 98px"><ellipse cx="96" cy="112" rx="7" ry="16" fill="${F}" stroke="${O}" stroke-width="2.5"/><circle cx="96" cy="126" r="6.5" fill="#f6b8aa" stroke="${O}" stroke-width="2"/></g>
+<path d="M44 88Q70 104 96 88L94 98Q70 114 46 98Z" fill="#f2a007" stroke="#b97a00" stroke-width="2"/>
+<g class="rm-head">
+<circle cx="32" cy="34" r="21" fill="${F}" stroke="${O}" stroke-width="2.5"/><circle cx="32" cy="34" r="14" fill="#f6b8aa"/>
+<circle cx="108" cy="34" r="21" fill="${F}" stroke="${O}" stroke-width="2.5"/><circle cx="108" cy="34" r="14" fill="#f6b8aa"/>
+<ellipse cx="70" cy="62" rx="37" ry="31" fill="${F}" stroke="${O}" stroke-width="2.5"/><ellipse cx="70" cy="70" rx="26" ry="19" fill="${L}"/>
+<path d="M66 32q4-9 10 0" fill="none" stroke="${O}" stroke-width="2" stroke-linecap="round"/>
+<path d="M70 38q-4 5 0 9q4-4 0-9z" fill="#e8441c"/>
+<ellipse cx="46" cy="74" rx="7" ry="4.5" fill="#ff9f9a" opacity=".6"/><ellipse cx="94" cy="74" rx="7" ry="4.5" fill="#ff9f9a" opacity=".6"/>
+<g class="rm-eyes-normal"><ellipse cx="55" cy="62" rx="8" ry="9.5" fill="#3b2418"/><ellipse cx="85" cy="62" rx="8" ry="9.5" fill="#3b2418"/><circle cx="58" cy="58" r="3" fill="#fff"/><circle cx="88" cy="58" r="3" fill="#fff"/><circle cx="53" cy="66" r="1.5" fill="#fff"/><circle cx="83" cy="66" r="1.5" fill="#fff"/></g>
+<g class="rm-eyes-happy" fill="none" stroke="#3b2418" stroke-width="3.5" stroke-linecap="round"><path d="M47 64Q55 53 63 64"/><path d="M77 64Q85 53 93 64"/></g>
+<ellipse cx="70" cy="74" rx="4.5" ry="3.3" fill="#f08a8f"/>
+<g class="rm-mouth-closed"><path d="M60 80Q70 88 80 80" fill="none" stroke="${O}" stroke-width="2.2" stroke-linecap="round"/><rect x="66" y="81" width="8" height="7" rx="2" fill="#fff" stroke="${O}" stroke-width="1.6"/></g>
+<g class="rm-mouth-open"><path d="M57 78Q70 100 83 78Z" fill="#7a2a2f" stroke="${O}" stroke-width="2.2" stroke-linejoin="round"/><path d="M63 90Q70 83 77 90Q70 95 63 90Z" fill="#f08a8f"/><rect x="66" y="78" width="8" height="6" rx="2" fill="#fff"/></g>
+<g stroke="${O}" stroke-width="1.6" stroke-linecap="round"><path d="M40 76L16 71M40 80L16 82M100 76L124 71M100 80L124 82"/></g>
+</g></svg>`;
+
+    let alive = true;
+    const play = async () => {
+        const W = innerWidth, H = innerHeight;
+        const rw = Math.max(120, Math.min(W * 0.3, 180)), rh = rw * 0.9, mw = rw * 0.34;
+        const floorY = H - rh - 6, jumpH = rh * 0.5, catchL = W * 0.06 + Math.random() * Math.max(0, W - rw * 1.3 - W * 0.06);
+        const apexY = floorY - jumpH;
+        const cx = catchL + rw * 0.84, cy = apexY + rh * 0.36; // where the held modak sits at the catch
+        const stage = document.createElement('div');
+        stage.className = 'rm-stage';
+        stage.setAttribute('aria-hidden', 'true');
+        stage.innerHTML = `<div class="rm-modak" style="width:${mw}px;height:${mw * 1.125}px">${modak(1)}</div>
+<div class="rm-rat" style="width:${rw}px;height:${rh}px;--mw:${mw}px"><div class="rm-bob">${rat}<div class="rm-held" style="width:${mw}px;height:${mw * 1.125}px">${modak(2)}</div></div></div>`;
+        document.body.appendChild(stage);
+        const m = stage.querySelector('.rm-modak'), r = stage.querySelector('.rm-rat');
+        const rt = (x, y) => `translate(${x}px,${y}px)`;
+        const anim = (el, kf, o) => el.animate(kf, { fill: 'forwards', ...o }).finished;
+        const sparkle = (x, y, n = 10) => {
+            for (let i = 0; i < n; i++) {
+                const s = document.createElement('span');
+                s.className = 'rm-spark';
+                s.textContent = ['✦', '✧', '❀', '✿'][i % 4];
+                stage.appendChild(s);
+                const a = Math.random() * 6.28, d = 40 + Math.random() * 60;
+                s.animate([
+                    { transform: `${rt(x, y)} scale(.4)`, opacity: 1 },
+                    { transform: `${rt(x + Math.cos(a) * d, y + Math.sin(a) * d - 20)} scale(1.2) rotate(120deg)`, opacity: 0 },
+                ], { duration: 900 + Math.random() * 400, easing: 'ease-out' }).finished.then(() => s.remove());
+            }
+        };
+
+        // 1) modak falls from above, rat scampers in from the left
+        const fall = anim(m, [
+            { transform: `${rt(cx - mw / 2, -mw * 1.5)} rotate(-14deg)` },
+            { transform: `${rt(cx - mw / 2, (cy - mw * 0.55) * 0.5)} rotate(10deg)`, offset: 0.5 },
+            { transform: `${rt(cx - mw / 2, cy - mw * 0.55)} rotate(0deg)` },
+        ], { duration: 2700, easing: 'cubic-bezier(.45,.05,.85,.55)' });
+        r.classList.add('rm-run');
+        await anim(r, [{ transform: rt(-rw * 1.1, floorY) }, { transform: rt(catchL, floorY) }], { duration: 2000, easing: 'cubic-bezier(.2,.7,.35,1)' });
+        r.classList.remove('rm-run');
+        r.classList.add('rm-look');           // stops, looks up at the falling modak
+        await wait(250);
+        r.classList.remove('rm-look');
+        r.classList.add('rm-jump');           // leaps up with both arms raised
+        const up = anim(r, [{ transform: rt(catchL, floorY) }, { transform: rt(catchL, apexY) }], { duration: 450, easing: 'cubic-bezier(.2,.8,.4,1)' });
+        await fall;
+        // 2) catch!
+        m.style.display = 'none';
+        r.classList.add('rm-carry');
+        sparkle(cx, cy, 12);
+        await up;
+        await anim(r, [{ transform: rt(catchL, apexY) }, { transform: rt(catchL, floorY) }], { duration: 330, easing: 'ease-in' });
+        // 3) victory pose + two hops
+        r.classList.remove('rm-jump');
+        r.classList.add('rm-cheer');
+        for (let i = 0; i < 2; i++) {
+            await anim(r, [{ transform: rt(catchL, floorY) }, { transform: rt(catchL, floorY - rh * 0.22) }, { transform: rt(catchL, floorY) }], { duration: 420, easing: 'ease-in-out' });
+            sparkle(catchL + rw * 0.5, floorY - rh * 0.3, 6);
+        }
+        await wait(350);
+        // 4) run away with the modak, off the page
+        r.classList.remove('rm-cheer');
+        r.classList.add('rm-run');
+        sparkle(catchL + rw * 0.3, floorY + rh * 0.8, 5);
+        await anim(r, [{ transform: rt(catchL, floorY) }, { transform: rt(W + rw * 0.3, floorY) }], { duration: 1500, easing: 'cubic-bezier(.5,0,.9,.6)' });
+        stage.remove();
+    };
+
+    const loop = async () => {
+        await wait(1200);
+        while (alive) {
+            if (!document.hidden) await play();
+            await wait(30000 + Math.random() * 20000);
+        }
+    };
+    window.addEventListener('pagehide', () => (alive = false));
+    loop();
+} catch (e) { console.warn("mouse animation skipped", e); } })();
+</script>
+    </body>
+</html>

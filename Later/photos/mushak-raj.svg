@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 190">
+<defs>
+ <linearGradient id="fur" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e5d9ca"/><stop offset=".55" stop-color="#a99b8c"/><stop offset="1" stop-color="#76685d"/></linearGradient>
+ <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff4df"/><stop offset="1" stop-color="#d9c9b6"/></linearGradient>
+ <linearGradient id="shawl" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f3a04b"/><stop offset="1" stop-color="#a83b24"/></linearGradient>
+</defs>
+<!-- tail -->
+<path d="M44 145 C8 154 17 181 42 174" fill="none" stroke="#9a8878" stroke-width="7" stroke-linecap="round"/>
+<!-- feet -->
+<ellipse cx="67" cy="177" rx="24" ry="8" fill="#d9b5a0"/>
+<ellipse cx="125" cy="177" rx="22" ry="8" fill="#d9b5a0"/>
+<!-- body -->
+<ellipse cx="96" cy="128" rx="48" ry="53" fill="url(#fur)"/>
+<ellipse cx="101" cy="137" rx="31" ry="42" fill="url(#belly)"/>
+<!-- ears -->
+<ellipse cx="43" cy="49" rx="31" ry="38" fill="#9d9084"/>
+<ellipse cx="43" cy="50" rx="21" ry="28" fill="#e9a995"/>
+<ellipse cx="126" cy="43" rx="29" ry="36" fill="#b4a596"/>
+<ellipse cx="126" cy="44" rx="19" ry="26" fill="#efb6a0"/>
+<!-- head -->
+<ellipse cx="91" cy="76" rx="57" ry="57" fill="url(#fur)"/>
+<ellipse cx="110" cy="91" rx="33" ry="27" fill="#f3e6d8"/>
+<!-- cheeks -->
+<ellipse cx="120" cy="102" rx="10" ry="6" fill="#e99d91" opacity=".65"/>
+<!-- eyes happy and bright -->
+<ellipse cx="77" cy="69" rx="10" ry="13" fill="#fffdf5"/>
+<ellipse cx="79" cy="70" rx="5.5" ry="8" fill="#49372f"/>
+<circle cx="81" cy="66" r="2.5" fill="#fff"/>
+<path d="M66 58 Q77 49 88 58" fill="none" stroke="#57483e" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="111" cy="70" rx="9" ry="12" fill="#fffdf5"/>
+<ellipse cx="113" cy="71" rx="5" ry="7.5" fill="#49372f"/>
+<circle cx="115" cy="67" r="2.4" fill="#fff"/>
+<path d="M101 58 Q111 50 121 58" fill="none" stroke="#57483e" stroke-width="4" stroke-linecap="round"/>
+<!-- nose, smile, whiskers -->
+<ellipse cx="137" cy="91" rx="7" ry="5.5" fill="#d98278"/>
+<path d="M136 98 Q130 111 116 108 Q109 107 106 101" fill="none" stroke="#76564b" stroke-width="2.8" stroke-linecap="round"/>
+<path d="M137 98 Q145 108 151 101" fill="none" stroke="#76564b" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M139 98 l22 -5 M139 103 l22 3 M106 98 l-20 -5" stroke="#f8eee2" stroke-width="1.8" stroke-linecap="round"/>
+<!-- tilak -->
+<path d="M101 17 Q108 29 101 38 Q94 29 101 17Z" fill="#e45d36"/>
+<!-- festive shawl -->
+<path d="M55 112 Q40 120 39 150 Q55 162 72 160 L83 124Z" fill="url(#shawl)" stroke="#8e3927" stroke-width="2"/>
+<path d="M48 126 Q59 135 72 132 M44 145 Q56 151 68 149" fill="none" stroke="#f6c66c" stroke-width="3"/>
+<path d="M48 118 l7 5 -5 5 8 5" fill="none" stroke="#f6d58a" stroke-width="2"/>
+<!-- necklace -->
+<path d="M76 112 Q97 132 119 111" fill="none" stroke="#d79b2d" stroke-width="5"/>
+<circle cx="98" cy="127" r="7" fill="#f6c64f" stroke="#a66b20" stroke-width="2"/>
+<!-- arms -->
+<path d="M55 132 Q43 144 53 155" fill="none" stroke="#b7a696" stroke-width="12" stroke-linecap="round"/>
+<ellipse cx="53" cy="158" rx="9" ry="7" fill="#dcb7a3"/>
+<path d="M132 127 Q150 134 151 148" fill="none" stroke="#b7a696" stroke-width="12" stroke-linecap="round"/>
+<ellipse cx="151" cy="151" rx="9" ry="7" fill="#dfb9a4"/>
+</svg>

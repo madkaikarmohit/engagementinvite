@@ -1,0 +1,515 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap");
+:root {
+  --forest: #183d2e;
+  --green: #315b43;
+  --cream: #f8f5e9;
+  --paper: #fffdf5;
+  --gold: #c7a56a;
+  --ink: #25382d;
+  --muted: #68766a;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  min-height: 100%;
+  background: var(--cream);
+}
+body {
+  margin: 0;
+  min-height: 100svh;
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  background: radial-gradient(ellipse at 50% 0%, #fffdf7 0%, var(--cream) 72%);
+  overflow-x: hidden;
+}
+#fireworks {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+.landing-shell {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  min-height: 100svh;
+  margin: auto;
+  padding: 35px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.top-ornament {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--gold);
+  font-size: 17px;
+  margin: 0 0 17px;
+}
+.top-ornament i {
+  display: block;
+  width: 74px;
+  border-top: 1px solid #c7a56a88;
+}
+.kicker {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #8a754d;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+h1 {
+  font: clamp(52px, 9vw, 82px) / 1.05 "Great Vibes", cursive;
+  color: var(--forest);
+  font-weight: 400;
+  margin: 0;
+}
+h1 em {
+  color: #a77e42;
+  font-style: normal;
+}
+.intro {
+  font: italic 15px/1.8 "Playfair Display", serif;
+  color: var(--muted);
+  margin: 9px 0 22px;
+}
+.couple-portrait {
+  position: relative;
+  width: min(390px, 82vw);
+  height: clamp(290px, 48vh, 440px);
+  margin: 0;
+  padding: 9px;
+  background: var(--paper);
+  border: 1px solid #d8c79f;
+  box-shadow: 0 17px 45px #183d2e18;
+  transform: rotate(-1deg);
+}
+.couple-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 39%;
+}
+.photo-corner {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-color: var(--gold);
+  border-style: solid;
+}
+.corner-tl {
+  top: -6px;
+  left: -6px;
+  border-width: 1px 0 0 1px;
+}
+.corner-br {
+  bottom: -6px;
+  right: -6px;
+  border-width: 0 1px 1px 0;
+}
+.couple-names {
+  font: clamp(28px, 5vw, 38px) "Playfair Display", serif;
+  color: var(--forest);
+  margin: 19px 0 3px;
+}
+.couple-names span {
+  font-style: italic;
+  color: var(--gold);
+}
+.date-line {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #7d806e;
+  margin: 0 0 22px;
+}
+.date-line b {
+  color: var(--gold);
+  padding: 0 5px;
+}
+.landing-actions {
+  width: min(520px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.action {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 12px 18px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--forest);
+  text-decoration: none;
+  font: 600 10px "DM Sans", sans-serif;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  transition: background 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.action:hover,
+.action:focus-visible {
+  background: var(--forest);
+  color: var(--cream);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px #183d2e16;
+  outline: none;
+}
+.action.primary {
+  background: transparent;
+  color: var(--forest);
+}
+.action.primary:hover,
+.action.primary:focus-visible {
+  background: var(--forest);
+  color: var(--cream);
+}
+.action.secondary {
+  background: transparent;
+  color: var(--forest);
+}
+.action-icon {
+  font: 22px "Playfair Display", serif;
+  color: var(--gold);
+}
+.action span:nth-child(2) {
+  display: grid;
+  gap: 4px;
+  font: 600 10px "DM Sans", sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.action small {
+  font: 600 7px "DM Sans", sans-serif;
+  letter-spacing: 1.5px;
+  opacity: 0.72;
+}
+.action > b {
+  color: var(--gold);
+  font-size: 14px;
+}
+.blessing {
+  font: 15px "Playfair Display", serif;
+  color: #9b855b;
+  margin: 22px 0 14px;
+  letter-spacing: 1px;
+}
+.bottom-ornament {
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 7px;
+  letter-spacing: 2.4px;
+  color: #a39472;
+}
+@media (max-width: 520px) {
+  .landing-shell {
+    padding: 28px 18px 18px;
+  }
+  .intro {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+  .couple-portrait {
+    height: clamp(270px, 42vh, 370px);
+    width: min(340px, 82vw);
+  }
+  .landing-actions {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+  .action {
+    min-height: 66px;
+  }
+  .blessing {
+    margin-top: 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+/* Champagne toast animation shown on every landing-page visit/reload */
+.toast-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #fffdf7 0%, #f8f5e9 72%);
+  pointer-events: none;
+  animation: toast-screen-out 0.65s ease 2.15s forwards;
+}
+.toast-glasses {
+  position: relative;
+  width: 190px;
+  height: 145px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toast-glass {
+  position: absolute;
+  width: 78px;
+  height: 118px;
+  fill: #f4dfad55;
+  stroke: #b79a5a;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 5px 8px #8a754d20);
+}
+.toast-glass .drink-line {
+  stroke: #c7a56a;
+  stroke-width: 2;
+}
+.toast-glass .bubbles {
+  fill: none;
+  stroke: #d7b66e;
+  stroke-width: 1.5;
+  opacity: 0.7;
+}
+.glass-left {
+  left: 15px;
+  transform: rotate(-17deg);
+  animation: glass-left-clink 0.72s cubic-bezier(0.2, 0.8, 0.2, 1) 0.55s
+    forwards;
+}
+.glass-right {
+  right: 15px;
+  transform: rotate(17deg);
+  animation: glass-right-clink 0.72s cubic-bezier(0.2, 0.8, 0.2, 1) 0.55s
+    forwards;
+}
+.clink-spark {
+  position: absolute;
+  top: 17px;
+  left: 50%;
+  color: #b79a5a;
+  font-size: 27px;
+  opacity: 0;
+  transform: translateX(-50%) scale(0.3);
+  animation: clink-pop 0.55s ease 1.22s forwards;
+}
+@keyframes glass-left-clink {
+  to {
+    transform: translateX(24px) rotate(-5deg);
+  }
+}
+@keyframes glass-right-clink {
+  to {
+    transform: translateX(-24px) rotate(5deg);
+  }
+}
+@keyframes clink-pop {
+  35% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.7);
+  }
+}
+@keyframes toast-screen-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@media (max-width: 520px) {
+  .landing-actions {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+  .action {
+    min-height: 58px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .toast-intro {
+    display: none;
+  }
+  .toast-glass,
+  .clink-spark {
+    animation: none !important;
+  }
+}
+
+/* Bring back the original forest-green, ivory and soft-gold engagement palette */
+body {
+  background: radial-gradient(ellipse at 12% 18%, #dce8d9aa 0%, transparent 34%),
+    radial-gradient(ellipse at 88% 78%, #e2eadc99 0%, transparent 36%),
+    radial-gradient(ellipse at 50% 0%, #fffdf7 0%, #f8f5e9 72%);
+}
+.landing-shell {
+  background: linear-gradient(180deg, #fffdf5b8 0%, #f7f5e9a8 100%);
+  border-left: 1px solid #315b4318;
+  border-right: 1px solid #315b4318;
+}
+.top-ornament {
+  color: #315b43;
+}
+.top-ornament i {
+  border-color: #315b4366;
+}
+.kicker {
+  color: #54745c;
+}
+h1 em {
+  color: #547b5b;
+}
+.couple-portrait {
+  border-color: #b9c9b0;
+  box-shadow: 0 17px 45px #183d2e20, 0 0 0 5px #e5ecdf88;
+}
+.photo-corner {
+  border-color: #b79a5a;
+}
+.action {
+  border-color: #b79a5a;
+}
+.action-icon {
+  color: #315b43;
+}
+.landing-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  padding: 18px 12px 22px;
+  background: #183d2e;
+  color: #f8f5e9;
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.landing-footer .made-with {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.landing-footer .evil-eye-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+}
+.landing-footer .evil-eye {
+  width: 22px;
+  height: 22px;
+  display: block;
+  transition: transform 0.25s;
+}
+.landing-footer .evil-eye-link:hover .evil-eye {
+  transform: rotate(-12deg) scale(1.15);
+}
+.landing-footer > span:last-child {
+  color: #d9d2bd;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+.landing-decor {
+  position: absolute;
+  inset: 0;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.decor-star,
+.decor-heart {
+  position: absolute;
+  display: block;
+  color: #b79a5a;
+  opacity: 0.34;
+  animation: decor-float 7s ease-in-out infinite;
+}
+.decor-star {
+  font-size: clamp(18px, 2.8vw, 30px);
+  color: #66866a;
+}
+.decor-heart {
+  font-size: clamp(15px, 2vw, 23px);
+  color: #bd927f;
+}
+.star-a {
+  top: 9%;
+  left: 9%;
+  animation-delay: -1s;
+}
+.heart-a {
+  top: 18%;
+  right: 10%;
+  animation-delay: -3s;
+}
+.star-b {
+  top: 37%;
+  right: 7%;
+  animation-delay: -4s;
+}
+.heart-b {
+  top: 54%;
+  left: 5%;
+  animation-delay: -2s;
+}
+.star-c {
+  bottom: 21%;
+  left: 13%;
+  animation-delay: -5s;
+}
+.heart-c {
+  bottom: 12%;
+  right: 12%;
+  animation-delay: -1.5s;
+}
+.star-d {
+  top: 65%;
+  right: 18%;
+  animation-delay: -2.5s;
+}
+.heart-d {
+  top: 31%;
+  left: 16%;
+  animation-delay: -4.5s;
+}
+@keyframes decor-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-9px) rotate(8deg);
+    opacity: 0.48;
+  }
+}
+@media (max-width: 520px) {
+  .landing-footer {
+    padding-bottom: 18px;
+  }
+  .decor-star,
+  .decor-heart {
+    opacity: 0.22;
+  }
+}

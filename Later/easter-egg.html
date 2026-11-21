@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#183c30">
+  <title>A Little Nazar Protection | Mohit &amp; Ashwini</title>
+ <link rel="icon" type="image/svg.xml" href="photos/favicon.svg" />
+ <link rel="icon" type="image/jpg" size="512*512" href="photos/favicon.jpg" />
+ <link rel="shortcut icon" href="photos/favicon.ico" />
+ <link rel="apple-touch-icon" href="photos/favicon.jpg" />
+  <style>
+    :root {
+      --green: #183c30;
+      --ivory: #f7f4e9;
+      --gold: #b99a62;
+      --soft-gold: #d8c49a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { width: 100%; min-height: 100%; }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      padding: clamp(12px, 2.5vh, 24px) 16px;
+      display: grid;
+      place-items: center;
+      overflow-x: hidden;
+      color: var(--ivory);
+      text-align: center;
+      font-family: Georgia, 'Times New Roman', serif;
+      background: radial-gradient(ellipse at top, #315746 0%, var(--green) 62%, #102b22 100%);
+    }
+
+    .page {
+      width: min(100%, 1000px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(7px, 1.2vh, 13px);
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--soft-gold);
+      font: 600 10px/1.4 Arial, sans-serif;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--ivory);
+      font-size: clamp(29px, 5vw, 48px);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+
+    h1 em { color: var(--soft-gold); font-weight: 400; }
+
+    .intro {
+      margin: 0;
+      max-width: 650px;
+      color: #e7e2d4;
+      font: clamp(12px, 1.5vw, 14px)/1.5 Arial, sans-serif;
+    }
+
+    figure {
+      width: min(100%, 820px);
+      margin: 0;
+      padding: 7px;
+      border: 1px solid rgba(185,154,98,.8);
+      background: rgba(247,244,233,.08);
+      box-shadow: 0 12px 38px rgba(0,0,0,.25);
+    }
+
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 57svh;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      padding: 7px 5px 2px;
+      color: #e4d6b6;
+      font: 9px/1.4 Arial, sans-serif;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 2px;
+      padding: 10px 18px;
+      border: 1px solid var(--gold);
+      color: var(--ivory);
+      text-decoration: none;
+      font: 600 9px/1.2 Arial, sans-serif;
+      letter-spacing: .17em;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .back:hover, .back:focus-visible {
+      background: var(--ivory);
+      color: var(--green);
+    }
+
+    /* Short screens: keep the full surprise compact and visible. */
+    @media (max-height: 760px) {
+      body { padding-top: 8px; padding-bottom: 8px; }
+      .page { gap: 6px; }
+      figure img { max-height: 48svh; }
+      .intro { line-height: 1.35; }
+      .back { padding: 8px 15px; }
+    }
+
+    /* Narrow phones: let the image use the available width without cropping. */
+    @media (max-width: 480px) {
+      body { padding-left: 10px; padding-right: 10px; }
+      .eyebrow { font-size: 9px; letter-spacing: .2em; }
+      figure { padding: 5px; }
+      figure img { max-height: 53svh; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .back { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <p class="eyebrow">A tiny surprise from the fur family</p>
+    <h1>A little <em>nazar</em> protection</h1>
+    <p class="intro">You found the secret !!</p>
+ <p class="intro">Our cuties have taken their duties very seriously. Consider this your official dose of paw-sitive protection. 🧿</p>
+    <p class="intro">The paw-lice are on duty. No bad vibes allowed !!</p>
+
+    <figure>
+      <img src="photos/nazar-paw-attack.png" alt="A comic illustration of an angry beagle and an orange-and-white cat teaming up against a man wearing a Nazar T-shirt; the cat is swinging a baseball bat." fetchpriority="high">
+      <figcaption>Approved by Mia &amp; Kitty </figcaption>
+    </figure>
+
+    <a class="back" onclick="history.back()">← BACK TO THE CELEBRATION</a>
+  </main>
+</body>
+</html>
