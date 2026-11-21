@@ -381,6 +381,26 @@ main {
   transition: background 0.2s, color 0.2s;
 }
 
+            .back {
+                display: inline-flex;
+                align-items: center;
+                gap: 9px;
+                padding: 12px 19px;
+                border: 1px solid #b79a5a;
+                color: var(--green);
+                text-decoration: none;
+                font-size: 10px;
+                letter-spacing: 1.6px;
+                text-transform: uppercase;
+                transition:
+                    background 0.2s,
+                    color 0.2s;
+            }
+            .back:hover {
+                background: var(--green);
+                color: var(--ivory);
+            }
+
 .gallery-nav-button:hover,
 .gallery-nav-button:focus-visible {
   background: #183d2e;
